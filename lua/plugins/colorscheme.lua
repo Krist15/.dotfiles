@@ -1,6 +1,6 @@
 return {
   { "navarasu/onedark.nvim", 
-    priority = 1000 , 
+    priority = 1000 ,
     name = "onedark",
     config = function()
       require("onedark").setup{style = "darker"}
