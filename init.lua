@@ -17,32 +17,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
-  { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true },
-
-  {
-    'nvim-telescope/telescope.nvim', tag = '0.1.5',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter", 
-    build = ":TSUpdate"
-  },
-
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", 
-      "MunifTanjim/nui.nvim",
-    }
-  },
-}
 local opts = {}
 
-require("lazy").setup(plugins, opts)
+require("lazy").setup("plugins")
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
@@ -56,6 +33,3 @@ configs.setup({
   highlight = { enable = true },
   indent = { enable = true },  
 })
-
-require("gruvbox").setup()
-vim.cmd.colorscheme "gruvbox"
