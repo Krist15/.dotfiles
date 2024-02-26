@@ -18,6 +18,7 @@ return {
 		-- lazy = false,
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      capabilities.offsetEncoding = { "utf-16" }
 
 			local lspconfig = require("lspconfig")
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
